@@ -1,19 +1,19 @@
 # Perception, Localization, Mapping and Navigation Pipeline
 
-This repository contains a complete software pipeline developed in C/C++ for the localization, mapping, and navigation of mobile robots. The university project was developed for the Robotics course at the Politecnico di Milano[cite: 2]. The work is divided into two main parts.
+This repository contains a complete software pipeline developed in C/C++ for the localization, mapping, and navigation of mobile robots. The university project was developed for the Robotics course at the Politecnico di Milano. The work is divided into two main parts.
 
 ## Part 1: Odometry Computation (AgileX Bunker Pro)
 
-This section focuses on tracking the position of the AgileX Bunker Pro robot[cite: 2]. The goal of the project is to compute the odometry starting from partial encoder data[cite: 2]. All modules have been implemented in C/C++ within a ROS package named `first_project`[cite: 2].
+This section focuses on tracking the position of the AgileX Bunker Pro robot . The goal of the project is to compute the odometry starting from partial encoder data . All modules have been implemented in C/C++ within a ROS package named `first_project` .
 
-* The `odometer` node is designed to subscribe to the `/bunker_status` topic receiving messages of type `bunker_msgs/msg/BunkerStatus`[cite: 2].
-* The `odometer` node publishes the computed pose on the `/project_odom` topic using the `nav_msgs/Odometry` message type and manages the `tf` transformation between `odom` and `base_link2`[cite: 2].
-* There is a service called `reset` which, when called, completely resets the odometry value to zero for both position and orientation[cite: 2].
-* The `tf_error` node evaluates accuracy by computing the distance between the real transformation (`base_link`) obtained from the data provided in the ROS Bag format and the computed transformation (`base_link2`)[cite: 2].
-* The `tf_error` node publishes the results on `/tf_error_msg` via a custom message (`first_project/tf_error_msg`)[cite: 2].
-* The fields of the error message include the header, tf error, time from start, and the total traveled distance expressed in meters[cite: 2].
-* The `first_project.launch.py` file starts the two nodes simultaneously[cite: 2].
-* The launch file automatically opens the RViz environment loading a specific configuration file that visualizes the transformations in a top view[cite: 2].
+* The `odometer` node is designed to subscribe to the `/bunker_status` topic receiving messages of type `bunker_msgs/msg/BunkerStatus` .
+* The `odometer` node publishes the computed pose on the `/project_odom` topic using the `nav_msgs/Odometry` message type and manages the `tf` transformation between `odom` and `base_link2` 
+* There is a service called `reset` which, when called, completely resets the odometry value to zero for both position and orientation .
+* The `tf_error` node evaluates accuracy by computing the distance between the real transformation (`base_link`) obtained from the data provided in the ROS Bag format and the computed transformation (`base_link2`).
+* The `tf_error` node publishes the results on `/tf_error_msg` via a custom message (`first_project/tf_error_msg`).
+* The fields of the error message include the header, tf error, time from start, and the total traveled distance expressed in meters.
+* The `first_project.launch.py` file starts the two nodes simultaneously .
+* The launch file automatically opens the RViz environment loading a specific configuration file that visualizes the transformations in a top view.
 
 ## Part 2: Mapping, SLAM, and Navigation (Agile Scout Mini)
 
