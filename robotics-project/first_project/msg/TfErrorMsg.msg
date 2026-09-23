@@ -1,0 +1,4 @@
+std_msgs/Header header
+float32 tf_error
+int32 time_from_start
+float32 travelled_distance

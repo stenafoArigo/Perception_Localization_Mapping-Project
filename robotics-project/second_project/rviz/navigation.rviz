@@ -1,0 +1,206 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Map1
+        - /LaserScan1
+        - /TF1
+        - /ParticleCloud1
+        - /Path1
+        - /Path2
+        - /Marker1
+      Splitter Ratio: 0.5
+    Tree Height: 700
+
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+
+    # ── Static map ──────────────────────────────────────────────────────────
+    - Alpha: 0.7
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+
+    # ── Local costmap ───────────────────────────────────────────────────────
+    - Alpha: 0.45
+      Class: rviz_default_plugins/Map
+      Color Scheme: costmap
+      Enabled: true
+      Name: Local Costmap
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/costmap
+
+    # ── Global costmap ──────────────────────────────────────────────────────
+    - Alpha: 0.3
+      Class: rviz_default_plugins/Map
+      Color Scheme: costmap
+      Enabled: true
+      Name: Global Costmap
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /global_costmap/costmap
+
+    # ── Laser scan ──────────────────────────────────────────────────────────
+    - Alpha: 1.0
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 50; 50
+      Color Transformer: FlatColor
+      Enabled: true
+      Name: LaserScan
+      Size (Pixels): 2
+      Style: Points
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /scan
+
+    # ── TF ──────────────────────────────────────────────────────────────────
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Marker Scale: 0.5
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+
+    # ── AMCL Particle Cloud ─────────────────────────────────────────────────
+    - Alpha: 1.0
+      Class: rviz_default_plugins/PoseArray
+      Color: 0; 200; 0
+      Enabled: true
+      Head Length: 0.02
+      Head Radius: 0.02
+      Shaft Length: 0.1
+      Shaft Radius: 0.01
+      Name: ParticleCloud
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /particle_cloud
+
+    # ── Global path ─────────────────────────────────────────────────────────
+    - Alpha: 1.0
+      Class: rviz_default_plugins/Path
+      Color: 0; 0; 255
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.03
+      Name: Global Path
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /plan
+
+    # ── Local path ──────────────────────────────────────────────────────────
+    - Alpha: 1.0
+      Class: rviz_default_plugins/Path
+      Color: 0; 255; 0
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.02
+      Name: Local Path
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_plan
+
+# ── Current navigation goal ─────────────────────────────────────────────
+    - Alpha: 1.0
+      Class: rviz_default_plugins/Pose
+      Color: 255; 165; 0
+      Enabled: true
+      Head Length: 0.3
+      Head Radius: 0.2
+      Name: Current Goal
+      Shaft Length: 1.0
+      Shaft Radius: 0.1
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep All
+        Reliability Policy: Reliable
+        Value: /goal_pose
+
+    # ── All CSV Goals ───────────────────────────────────────────────────────
+    - Alpha: 1.0
+      Class: rviz_default_plugins/PoseArray
+      Color: 255; 0; 0
+      Enabled: true
+      Head Length: 0.3
+      Head Radius: 0.2
+      Name: All Goals
+      Shaft Length: 1.0
+      Shaft Radius: 0.1
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /all_goals
+        
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive: false
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: nav2_rviz_plugins/GoalTool
+
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+
+  Value: true
+
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 25
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Pitch: 1.5
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 3.14
+    Saved: ~
